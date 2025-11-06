@@ -1,8 +1,9 @@
 'use client';
 
+import Link from 'next/link';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
-import { IconButton, Typography } from '@mui/material';
+import { IconButton, Typography, Button, Box } from '@mui/material';
 import { styled, useColorScheme } from '@mui/material/styles';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { zIndex, HEADER_HEIGHT } from '~/utils';
@@ -16,7 +17,14 @@ export const Header = () => {
 
   return (
     <StyledHeader>
-      <Typography data-testid='boilerplate-title'>Next.js Boilerplate</Typography>
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: 3 }}>
+        <Typography data-testid='boilerplate-title'>Next.js Boilerplate</Typography>
+        <Link href='/price-of-processing' style={{ textDecoration: 'none' }}>
+          <Button variant='outlined' size='small'>
+            Quiz
+          </Button>
+        </Link>
+      </Box>
       <SIconButton onClick={changeTheme}>{mode === 'dark' ? <LightModeIcon /> : <DarkModeIcon />}</SIconButton>
       <ConnectButton />
     </StyledHeader>

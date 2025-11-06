@@ -1,14 +1,17 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import { CssBaseline, styled } from '@mui/material';
-import { Disclaimer } from '~/components';
+// import { Disclaimer } from '~/components'; // Not used
 import { Footer, Header } from '~/containers';
 
 export function LayoutContent({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+  const isQuizPage = pathname === '/' || pathname === '/price-of-processing';
+
   return (
     <>
       <CssBaseline />
-      <Disclaimer />
 
       <MainContent>
         <NoScriptMessage>
@@ -21,9 +24,9 @@ export function LayoutContent({ children }: { children: React.ReactNode }) {
             This website is not yet optimized for mobile devices. Please use a desktop browser for the best experience.
           </p>
         </ResponsiveDisclaimer>
-        <Header />
+        {!isQuizPage && <Header />}
         {children}
-        <Footer />
+        {!isQuizPage && <Footer />}
       </MainContent>
     </>
   );

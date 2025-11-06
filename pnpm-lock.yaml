@@ -38,15 +38,24 @@ importers:
       '@tanstack/react-query':
         specifier: 5.80.3
         version: 5.80.3(react@19.1.0)
+      katex:
+        specifier: ^0.16.11
+        version: 0.16.25
       next:
         specifier: 15.3.3
         version: 15.3.3(@babel/core@7.25.7)(@playwright/test@1.53.0)(babel-plugin-macros@3.1.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react:
         specifier: 19.1.0
         version: 19.1.0
+      react-confetti:
+        specifier: ^6.1.0
+        version: 6.4.0(react@19.1.0)
       react-dom:
         specifier: 19.1.0
         version: 19.1.0(react@19.1.0)
+      react-katex:
+        specifier: ^3.0.1
+        version: 3.1.0(prop-types@15.8.1)(react@19.1.0)
       react-router-dom:
         specifier: 7.6.2
         version: 7.6.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -2484,6 +2493,10 @@ packages:
     resolution: {integrity: sha512-NOKm8xhkzAjzFx8B2v5OAHT+u5pRQc2UCa2Vq9jYL/31o2wi9mxBA7LIFs3sV5VSC49z6pEhfbMULvShKj26WA==}
     engines: {node: '>= 6'}
 
+  commander@8.3.0:
+    resolution: {integrity: sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww==}
+    engines: {node: '>= 12'}
+
   concat-map@0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
 
@@ -3855,6 +3868,10 @@ packages:
   jszip@3.10.1:
     resolution: {integrity: sha512-xXDvecyTpGLrqFrvkrUSoxxfJI5AH7U8zxxtVclpsUtMCq4JQ290LY8AW5c7Ggnr/Y/oK+bQMbqK2qmtk3pN4g==}
 
+  katex@0.16.25:
+    resolution: {integrity: sha512-woHRUZ/iF23GBP1dkDQMh1QBad9dmr8/PAwNA54VrSOVYgI12MAcE14TqnDdQOdzyEonGzMepYnqBMYdsoAr8Q==}
+    hasBin: true
+
   keccak@3.0.4:
     resolution: {integrity: sha512-3vKuW0jV8J3XNTzvfyicFR5qvxrSAGl7KIhvgOu5cmWwM7tZRj3fMbj/pfIf4be7aznbc+prBWGjywox/g2Y6Q==}
     engines: {node: '>=10.0.0'}
@@ -4423,6 +4440,12 @@ packages:
   radix3@1.1.2:
     resolution: {integrity: sha512-b484I/7b8rDEdSDKckSSBA8knMpcdsXudlE/LNL639wFoHKwLbEkQFZHWEYwDC0wa0FKUcCY+GAF73Z7wxNVFA==}
 
+  react-confetti@6.4.0:
+    resolution: {integrity: sha512-5MdGUcqxrTU26I2EU7ltkWPwxvucQTuqMm8dUz72z2YMqTD6s9vMcDUysk7n9jnC+lXuCPeJJ7Knf98VEYE9Rg==}
+    engines: {node: '>=16'}
+    peerDependencies:
+      react: ^16.3.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+
   react-dom@19.1.0:
     resolution: {integrity: sha512-Xs1hdnE+DyKgeHJeJznQmYMIBG3TKIHJJT95Q58nHLSrElKlGQqDTR2HQ9fx5CN/Gk6Vh/kupBTDLU11/nDk/g==}
     peerDependencies:
@@ -4436,6 +4459,12 @@ packages:
 
   react-is@19.1.0:
     resolution: {integrity: sha512-Oe56aUPnkHyyDxxkvqtd7KkdQP5uIUfHxd5XTb3wE9d/kRnZLmKbDB0GWk919tdQ+mxxPtG6EAs6RMT6i1qtHg==}
+
+  react-katex@3.1.0:
+    resolution: {integrity: sha512-At9uLOkC75gwn2N+ZXc5HD8TlATsB+3Hkp9OGs6uA8tM3dwZ3Wljn74Bk3JyHFPgSnesY/EMrIAB1WJwqZqejA==}
+    peerDependencies:
+      prop-types: ^15.8.1
+      react: '>=15.3.2 <20'
 
   react-remove-scroll-bar@2.3.8:
     resolution: {integrity: sha512-9r+yi9+mgU33AKcj6IbT9oRCO78WriSj6t/cF8DWBZJ9aOGPOTEDvdUDz1FwKim7QXWwmHqtdHnRJfhAxEG46Q==}
@@ -5033,6 +5062,9 @@ packages:
         optional: true
       typescript:
         optional: true
+
+  tween-functions@1.2.0:
+    resolution: {integrity: sha512-PZBtLYcCLtEcjL14Fzb1gSxPBeL7nWvGhO5ZFPGqziCcr8uvHp0NDmdjBchp6KHL+tExcg0m3NISmKxhU394dA==}
 
   type-check@0.4.0:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}
@@ -8883,6 +8915,8 @@ snapshots:
 
   commander@4.1.1: {}
 
+  commander@8.3.0: {}
+
   concat-map@0.0.1: {}
 
   convert-source-map@1.9.0: {}
@@ -10731,6 +10765,10 @@ snapshots:
       readable-stream: 2.3.8
       setimmediate: 1.0.5
 
+  katex@0.16.25:
+    dependencies:
+      commander: 8.3.0
+
   keccak@3.0.4:
     dependencies:
       node-addon-api: 2.0.2
@@ -11037,10 +11075,10 @@ snapshots:
   ox@0.6.7(typescript@5.6.2)(zod@3.22.4):
     dependencies:
       '@adraffy/ens-normalize': 1.11.0
-      '@noble/curves': 1.8.1
-      '@noble/hashes': 1.7.1
-      '@scure/bip32': 1.6.2
-      '@scure/bip39': 1.5.4
+      '@noble/curves': 1.9.1
+      '@noble/hashes': 1.8.0
+      '@scure/bip32': 1.7.0
+      '@scure/bip39': 1.6.0
       abitype: 1.0.8(typescript@5.6.2)(zod@3.22.4)
       eventemitter3: 5.0.1
     optionalDependencies:
@@ -11266,6 +11304,11 @@ snapshots:
 
   radix3@1.1.2: {}
 
+  react-confetti@6.4.0(react@19.1.0):
+    dependencies:
+      react: 19.1.0
+      tween-functions: 1.2.0
+
   react-dom@19.1.0(react@19.1.0):
     dependencies:
       react: 19.1.0
@@ -11276,6 +11319,12 @@ snapshots:
   react-is@18.3.1: {}
 
   react-is@19.1.0: {}
+
+  react-katex@3.1.0(prop-types@15.8.1)(react@19.1.0):
+    dependencies:
+      katex: 0.16.25
+      prop-types: 15.8.1
+      react: 19.1.0
 
   react-remove-scroll-bar@2.3.8(@types/react@18.3.10)(react@19.1.0):
     dependencies:
@@ -11937,6 +11986,8 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
       - ts-node
+
+  tween-functions@1.2.0: {}
 
   type-check@0.4.0:
     dependencies:

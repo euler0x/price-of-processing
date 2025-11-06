@@ -4,15 +4,15 @@ import { Providers } from '~/providers';
 import { LayoutContent } from './layout-content';
 
 export const metadata: Metadata = {
-  title: 'Web3 Boilerplate',
-  description: 'Web3 Boilerplate by Wonderland.',
+  title: 'Proof of Scape',
+  description: 'Proof of Scape by Wonderland.',
   robots: 'noindex',
   icons: {
     icon: '/favicon.ico',
   },
   openGraph: {
-    title: 'Web3 Boilerplate',
-    description: 'Web3 Boilerplate by Wonderland.',
+    title: 'Proof of Scape',
+    description: 'Proof of Scape by Wonderland.',
   },
   twitter: {
     card: 'summary_large_image',
