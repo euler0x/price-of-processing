@@ -559,28 +559,9 @@ export const QuizzContainer = () => {
           validationStatus={state.validationStatus.q3}
           onValueChange={(value) => handleAnswerChange('q3', value)}
           onSubmit={() => {
-            const answer = parseInt(state.answers.q3, 10);
-            // Calculate expected from user's actual inputs
-            const numerator = parseFloat(state.answers.q1);
-            const denominator = parseFloat(state.answers.q2);
-            let isCorrect = false;
-            if (!isNaN(numerator) && !isNaN(denominator) && denominator > 0) {
-              const expectedValue = (numerator / denominator) * 100;
-              const margin = expectedValue * 0.05; // 5% margin
-              const minValue = Math.max(0, Math.floor(expectedValue - margin));
-              const maxValue = Math.ceil(expectedValue + margin);
-              isCorrect = !isNaN(answer) && answer >= minValue && answer <= maxValue;
-            } else {
-              // Fallback to fixed range if inputs are invalid
-              isCorrect = !isNaN(answer) && answer >= 34 && answer <= 38;
-            }
             handleSubmit('q3');
-            // Auto-advance to success screen after a short delay if correct
-            if (isCorrect) {
-              setTimeout(() => {
-                handleNext();
-              }, 3000); // Increased delay to allow reading the reflection
-            }
+            // Don't auto-advance - let user click "Next" when ready to see success screen
+            // This gives users full control to read the success message and reflection
           }}
           onNext={handleNext}
           onBack={handleBack}
