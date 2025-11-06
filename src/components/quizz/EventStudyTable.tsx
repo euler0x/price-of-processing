@@ -273,7 +273,7 @@ export const EventStudyTable = ({ showSparkline = false }: EventStudyTableProps)
                         style={
                           isInStabilizationZone
                             ? {
-                                textShadow: `0 0 4px ${COLORS.cccccc}`,
+                                textShadow: `0 0 4px ${COLORS.silver}`,
                               }
                             : {}
                         }

@@ -30,6 +30,7 @@
     "./src",
     "./dist/types/**/*.ts",
     "./next-env.d.ts",
+    "./react-katex.d.ts",
     "./test/**/*.ts",
     "./tests/**/*.ts",
     "./playwright.config.ts",

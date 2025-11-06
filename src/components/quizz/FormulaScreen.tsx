@@ -323,7 +323,7 @@ export const FormulaScreen = ({ onNext, onBack }: FormulaScreenProps) => {
 
       <SectionTitle variant='h6'>{'>'} UNDERSTANDING THE VARIABLES</SectionTitle>
 
-      <TableCard component={Paper}>
+      <TableCard>
         <Table size='small'>
           <TableBody>
             <TableRow>
