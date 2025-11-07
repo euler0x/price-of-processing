@@ -249,14 +249,14 @@ export const SuccessScreen = ({ onRestart }: SuccessScreenProps) => {
         <SuccessTitle variant='h1'>36. THAT'S THE NUMBER. YOU GOT IT.</SuccessTitle>
 
         <HighlightText variant='h5'>
-          An incredible <strong>36%</strong> of the price discovery happens in the shadows, between the on-chain
+          An incredible <strong>36%</strong> of the price discovery happens in the shadows, between the onchain
           transaction and the social media alert.
         </HighlightText>
 
         <BodyText variant='body1'>
           You have successfully verified the study's central finding. It demonstrates that even in a transparent system
           like a blockchain, there is a significant cost and skill required to process raw information. Those who can
-          pay this price—in expertise and monitoring tools—gain a crucial head start.
+          pay this price in expertise and monitoring tools, gain a crucial head start.
         </BodyText>
 
         <CongratsTitle variant='h4'>{'>'} CONGRATULATIONS ON COMPLETING THE ANALYSIS</CongratsTitle>

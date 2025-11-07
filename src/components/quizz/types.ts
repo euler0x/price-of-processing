@@ -9,6 +9,7 @@ export interface QuizzState {
     q1: 'pending' | 'correct' | 'incorrect';
     q2: 'pending' | 'correct' | 'incorrect';
     q3: 'pending' | 'correct' | 'incorrect';
+    bonus: 'pending' | 'correct' | 'incorrect';
   };
 }
 
@@ -17,5 +18,7 @@ export type QuizzAction =
   | { type: 'GO_BACK' }
   | { type: 'SET_ANSWER'; payload: { question: 'q1' | 'q2' | 'q3'; value: string } }
   | { type: 'VALIDATE_ANSWER'; payload: { question: 'q1' | 'q2' | 'q3'; isCorrect: boolean } }
+  | { type: 'VALIDATE_BONUS'; payload: { isCorrect: boolean } }
   | { type: 'RESET_VALIDATION'; payload: { question: 'q1' | 'q2' | 'q3' } }
+  | { type: 'RESET_BONUS_VALIDATION' }
   | { type: 'RESTART' };

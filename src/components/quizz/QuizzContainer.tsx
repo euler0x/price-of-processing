@@ -5,6 +5,7 @@ import { Card, CardContent, Stepper, Step, StepLabel, Typography, Box, Paper } f
 import { styled, keyframes } from '@mui/material/styles';
 import 'katex/dist/katex.min.css';
 import { BlockMath } from 'react-katex';
+import { BonusScreen } from './BonusScreen';
 import { EventStudyChart } from './EventStudyChart';
 import { EventStudyTable } from './EventStudyTable';
 import { FormulaScreen } from './FormulaScreen';
@@ -46,6 +47,7 @@ const initialState: QuizzState = {
     q1: 'pending',
     q2: 'pending',
     q3: 'pending',
+    bonus: 'pending',
   },
 };
 
@@ -77,12 +79,28 @@ function quizzReducer(state: QuizzState, action: QuizzAction): QuizzState {
           [action.payload.question]: action.payload.isCorrect ? 'correct' : 'incorrect',
         },
       };
+    case 'VALIDATE_BONUS':
+      return {
+        ...state,
+        validationStatus: {
+          ...state.validationStatus,
+          bonus: action.payload.isCorrect ? 'correct' : 'incorrect',
+        },
+      };
     case 'RESET_VALIDATION':
       return {
         ...state,
         validationStatus: {
           ...state.validationStatus,
           [action.payload.question]: 'pending',
+        },
+      };
+    case 'RESET_BONUS_VALIDATION':
+      return {
+        ...state,
+        validationStatus: {
+          ...state.validationStatus,
+          bonus: 'pending',
         },
       };
     case 'RESTART':
@@ -167,6 +185,10 @@ export const QuizzContainer = () => {
     dispatch({ type: 'RESTART' });
   };
 
+  const handleBonusValidate = (isCorrect: boolean) => {
+    dispatch({ type: 'VALIDATE_BONUS', payload: { isCorrect } });
+  };
+
   const steps = ['Intro', 'The Formula', 'Pre-Announcement', 'Total Impact', 'Final Step'];
 
   const getActiveStep = () => {
@@ -175,7 +197,8 @@ export const QuizzContainer = () => {
     if (state.currentStep === 2) return 2;
     if (state.currentStep === 3) return 3;
     if (state.currentStep === 4) return 4;
-    if (state.currentStep === 5) return 4; // Success screen
+    if (state.currentStep === 5) return 4; // Bonus screen
+    if (state.currentStep === 6) return 4; // Success screen
     return 0;
   };
 
@@ -223,11 +246,11 @@ export const QuizzContainer = () => {
                   {'>'} THINK OF IT LIKE THIS:
                 </Typography>
                 <Typography variant='body2' sx={{ mb: 1, lineHeight: 1.7, fontFamily: '"JetBrains Mono", monospace' }}>
-                  First, find how big the entire price drop was after the hack — that's your denominator.
+                  First, find how big the entire price drop was after the hack, that's your denominator.
                 </Typography>
                 <Typography variant='body2' sx={{ mb: 1, lineHeight: 1.7, fontFamily: '"JetBrains Mono", monospace' }}>
-                  Then, in the next step, you'll find how much of that drop happened before the public announcement —
-                  the numerator.
+                  Then, in the next step, you'll find how much of that drop happened before the public announcement,
+                  this is the numerator.
                 </Typography>
                 <Typography variant='body2' sx={{ lineHeight: 1.7, fontFamily: '"JetBrains Mono", monospace' }}>
                   Once you have both, you'll calculate what share of the total movement occurred in the hidden window,
@@ -258,7 +281,7 @@ export const QuizzContainer = () => {
                 paragraph
                 sx={{ mb: 2, fontSize: '1.1rem', lineHeight: 1.8, fontFamily: '"JetBrains Mono", monospace' }}
               >
-                The left-hand block measures time from the moment of the on-chain hack itself — the very first sign of
+                The left-hand block measures time from the moment of the on-chain hack itself, the very first sign of
                 trouble.
               </Typography>
               <Typography
@@ -294,7 +317,7 @@ export const QuizzContainer = () => {
                   The study reports cumulative abnormal returns (CARs) at fixed checkpoints: −24, −12, −6, −3, 0, +3,
                   +6, +12, +24 hours. After a hack, prices typically drop quickly and then stabilize. To capture the
                   complete market reaction, you need to find the checkpoint where the price drop has fully materialized
-                  and stabilized — look for where the values plateau rather than continuing to change.
+                  and stabilized. So look for where the values plateau rather than continuing to change.
                 </Typography>
               </Box>
               <Typography
@@ -596,6 +619,16 @@ export const QuizzContainer = () => {
       );
     }
     if (state.currentStep === 5) {
+      return (
+        <BonusScreen
+          onNext={handleNext}
+          onBack={handleBack}
+          onValidate={handleBonusValidate}
+          validationStatus={state.validationStatus.bonus}
+        />
+      );
+    }
+    if (state.currentStep === 6) {
       return <SuccessScreen onRestart={handleRestart} />;
     }
     return null;
@@ -605,7 +638,7 @@ export const QuizzContainer = () => {
     <Container>
       <StyledCard>
         <StyledCardContent>
-          {state.currentStep > 0 && state.currentStep < 5 && (
+          {state.currentStep > 0 && state.currentStep < 6 && (
             <StyledStepper activeStep={getActiveStep()}>
               {steps.map((label) => (
                 <Step key={label}>

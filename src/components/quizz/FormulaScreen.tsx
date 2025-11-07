@@ -331,7 +331,7 @@ export const FormulaScreen = ({ onNext, onBack }: FormulaScreenProps) => {
                 Price Drop Before Announcement
               </TableCell>
               <TableCell>
-                The early decline — what happens in the hidden window when only expert traders react.
+                The early decline, what happens in the hidden window when only expert traders react.
               </TableCell>
             </TableRow>
             <TableRow>
@@ -342,7 +342,7 @@ export const FormulaScreen = ({ onNext, onBack }: FormulaScreenProps) => {
             </TableRow>
             <TableRow>
               <TableCell sx={{ fontWeight: 'bold', borderRight: `1px solid ${COLORS.gunmetal}` }}>Result</TableCell>
-              <TableCell>The fraction of the total impact that happened early — the "Price of Processing."</TableCell>
+              <TableCell>The fraction of the total impact that happened early, the "Price of Processing."</TableCell>
             </TableRow>
           </TableBody>
         </Table>
@@ -359,7 +359,7 @@ export const FormulaScreen = ({ onNext, onBack }: FormulaScreenProps) => {
           variant='body2'
           sx={{ color: COLORS.silver, fontFamily: '"JetBrains Mono", monospace', lineHeight: 1.8 }}
         >
-          "If markets were perfectly efficient, this ratio would be zero — prices wouldn't move until the news was
+          "If markets were perfectly efficient, this ratio would be zero and prices wouldn't move until the news was
           public."
         </Typography>
       </AnalystNote>
@@ -416,10 +416,7 @@ export const FormulaScreen = ({ onNext, onBack }: FormulaScreenProps) => {
             fontFamily: '"JetBrains Mono", monospace',
             opacity: 0.8,
           }}
-        >
-          The magenta section shows the hidden reaction (numerator). The full cyan line shows the total drop
-          (denominator).
-        </Typography>
+        ></Typography>
       </TimelineBox>
 
       <SectionTitle variant='h6'>{'>'} NEXT STEP</SectionTitle>

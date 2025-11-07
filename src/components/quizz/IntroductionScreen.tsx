@@ -349,8 +349,8 @@ export const IntroductionScreen = ({ onStart }: IntroductionScreenProps) => {
       <BodyText variant='body1'>In financial markets, speed and understanding are everything.</BodyText>
 
       <BodyText variant='body1'>
-        On a public blockchain, every transaction — even a hack — becomes visible the instant it happens. But visibility
-        isn't the same as comprehension.
+        On a public blockchain, every transaction, even a hack, becomes visible the instant it happens. But visibility
+        isn't the same as comprehension, there is a skill issue in the middle.
       </BodyText>
 
       <HighlightText variant='body1'>
@@ -359,8 +359,9 @@ export const IntroductionScreen = ({ onStart }: IntroductionScreenProps) => {
       </HighlightText>
 
       <BodyText variant='body1'>
-        By the time the team posts an announcement on social media, the price has already fallen — and only those who
-        could read the signals early reacted in time.
+        When some asshole pulls off a hack, the team usually throws up an announcement on social media. But that thing
+        ain't instant, while they're fumbling around, the price has already tanked. It's only the sharp eyed players who
+        caught the early signals who managed to bail out their sorry asses in time.
       </BodyText>
 
       <MissionCard>
